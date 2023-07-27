@@ -1,7 +1,7 @@
 {
-  "name": "namaste-react",
+  "name": "foodzone",
   "version": "1.0.0",
-  "description": "This is Namaste React by Akshay Saini",
+  "description": "clone project of Swiggy API",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namastedev/namaste-react.git"
+    "url": "git+https://github.com/Sravani020894/FoodZoneReact.git"
   },
   "keywords": [],
-  "author": "Akshay Saini",
+  "author": "Sravani Rebba",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/namastedev/namaste-react/issues"
+    "url": "https://github.com/Sravani020894/FoodZoneReact/issues"
   },
-  "homepage": "https://github.com/namastedev/namaste-react#readme",
+  "homepage": "https://github.com/Sravani020894/FoodZoneReact#readme",
   "devDependencies": {
     "parcel": "^2.8.3",
     "postcss": "^8.4.24",
