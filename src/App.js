@@ -15,7 +15,7 @@ import UserContext from "./utils/UserContext";
 // Dynamic Bundling
 // lazy Loading
 // on demand loading
-// dynamix imoprt
+// dynamic import
 
 const Grocery = lazy(() => import("./components/Grocery"));
 

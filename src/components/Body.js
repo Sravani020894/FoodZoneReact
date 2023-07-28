@@ -21,16 +21,12 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&page_type=DESKTOP_WEB_LISTING"
-    );
-    
-
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");    
     const json = await data.json();
-
+    console.log(json);
     // Optional Chaining
-    setListOfRestraunt(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setListOfRestraunt(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants);
+    setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants);
   };
 
   const onlineStatus = useOnlineStatus();
@@ -43,6 +39,8 @@ const Body = () => {
     );
 
   const { loggedInUser, setUserName } = useContext(UserContext);
+
+  console.log(listOfRestaurants);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -100,13 +98,13 @@ const Body = () => {
       <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link
-            key={restaurant.data.id}
-            to={"/restaurants/" + restaurant.data.id}
+            key={restaurant?.info.id}
+            to={"/restaurants/" + restaurant?.info.id}
           >
-            {restaurant.data.promoted ? (
-              <RestaurantCardPromoted resData={restaurant} />
+            {restaurant?.info.promoted ? (
+              <RestaurantCardPromoted resData={restaurant?.info} />
             ) : (
-              <RestaurantCard resData={restaurant} />
+              <RestaurantCard resData={restaurant?.info} />
             )}
           </Link>
         ))}
