@@ -17,8 +17,8 @@ const Body = () => {
   // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
 
   useEffect(() => {
-    fetchData();
-  }, []);
+     fetchData();
+   }, []);
 
   const fetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");    
@@ -39,10 +39,11 @@ const Body = () => {
         }
       }
     }
-
-    // call the checkJsonData() function which return Swiggy Restaurant data
+  
+     //call the checkJsonData() function which return Swiggy Restaurant data
     const resData = await checkJsonData(json);
-    // Optional Chaining
+    // const resData = useRestaurantData();
+    // // Optional Chaining
     setListOfRestraunt(resData);
     setFilteredRestaurant(resData);
   };

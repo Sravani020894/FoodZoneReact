@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+ import { useEffect, useState } from "react";
 
 // const useOnlineStatus = () => {
 //   const [onlineStatus, setOnlineStatus] = useState(true);
@@ -19,19 +19,20 @@
 
 // export default useOnlineStatus;
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useOnlineStatus = () => {
   let [onlineStatus,setOnlineStatus] = useState(true);
-  console.log("rendering page at first");
+  useEffect(()=>{
     window.addEventListener("offline",()=>{
-      console.log("rendering page after offline");
       setOnlineStatus(false);
+      console.log("rendering page after offline");
     });
     window.addEventListener("online",()=>{
-      console.log("rendering page after online");
       setOnlineStatus(true);
-  });
+      console.log("rendering page after online");
+    });
+  },[]);
   return onlineStatus;
 }
 
